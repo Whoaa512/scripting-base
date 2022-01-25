@@ -4,6 +4,18 @@
   "main": "index.js",
   "author": "C.J. Winslow <whoaa512@gmail.com> (https://github.com/whoaa512)",
   "license": "MIT",
+  "scripts": {
+    "hook-install": "precommit install",
+    "hook-remove": "precommit remove",
+    "lint": "eslint --ext .js,.ts ./**/*.ts ./**/*.js"
+  },
+  "precommit": {
+    "tasks": [
+      "yarn lint"
+    ],
+    "onDirtyState": "ask",
+    "coloredOutput": true
+  },
   "devDependencies": {
     "@types/node": "17.0.11",
     "@typescript-eslint/parser": "5.10.1",
@@ -11,6 +23,7 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "nodemon": "2.0.15",
+    "precommit": "1.2.2",
     "prettier": "2.5.1",
     "ts-node": "10.4.0",
     "typescript": "4.5.5"
